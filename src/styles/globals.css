@@ -1,0 +1,91 @@
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Clash Display — auto-hébergée (offline) ── */
+@font-face {
+  font-family: 'Clash Display';
+  src: url('/fonts/ClashDisplay-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── DARK THEME (default) ── */
+:root {
+  --bg-main: #1a1a1a;
+  --bg-surface: #2a2a2a;
+  --bg-surface2: #313131;
+  --border-subtle: rgba(255,255,255,0.07);
+  --border-visible: rgba(255,255,255,0.12);
+  --accent: #7c2d9e;
+  --accent-hover: #9535ba;
+  --accent-glow: rgba(124,45,158,0.35);
+  --accent-glow-soft: rgba(124,45,158,0.18);
+  --accent-chip-bg: rgba(124,45,158,0.18);
+  --accent-chip-border-hover: rgba(124,45,158,0.55);
+  --text-main: #f2f2f2;
+  --text-secondary: #888;
+  --text-tertiary: #555;
+  --nav-bg: rgba(26,26,26,0.92);
+  --input-bg: #2a2a2a;
+  --radial: radial-gradient(ellipse at 50% 0%, rgba(124,45,158,0.18) 0%, #1a1a1a 70%);
+  --logo-filter: none;
+  --shadow-card: none;
+  --footer-border: rgba(255,255,255,0.07);
+  --tab-done-color: #444;
+}
+
+/* ── LIGHT THEME ── */
+[data-theme="light"] {
+  --bg-main: #f5f4f2;
+  --bg-surface: #ffffff;
+  --bg-surface2: #ede9e4;
+  --border-subtle: rgba(0,0,0,0.06);
+  --border-visible: rgba(0,0,0,0.13);
+  --accent: #7c2d9e;
+  --accent-hover: #6b2589;
+  --accent-glow: rgba(124,45,158,0.18);
+  --accent-glow-soft: rgba(124,45,158,0.09);
+  --accent-chip-bg: rgba(124,45,158,0.1);
+  --accent-chip-border-hover: rgba(124,45,158,0.4);
+  --text-main: #1a1a1a;
+  --text-secondary: #6b6b6b;
+  --text-tertiary: #aaa;
+  --nav-bg: rgba(245,244,242,0.94);
+  --input-bg: #fafaf9;
+  --radial: radial-gradient(ellipse at 50% 0%, rgba(124,45,158,0.07) 0%, #f5f4f2 70%);
+  --logo-filter: invert(1) brightness(0);
+  --shadow-card: 0 1px 4px rgba(0,0,0,0.07);
+  --footer-border: rgba(0,0,0,0.08);
+  --tab-done-color: #bbb;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+#root { min-height: 100vh; display: flex; flex-direction: column; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-main); }
+::-webkit-scrollbar-thumb { background: var(--border-visible); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(124,45,158,0.4); }
+
+textarea { resize: vertical; min-height: 100px; }
+
+::selection { background: rgba(124,45,158,0.35); color: var(--text-main); }
