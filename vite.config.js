@@ -7,26 +7,32 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['fonts/**', 'LOGO ARISID STUDIO Blanc.png'],
+      includeAssets: ['fonts/**', 'LOGO ARISID STUDIO Blanc.png', 'icon-192.png', 'icon-512.png', 'apple-touch-icon.png'],
       manifest: {
         name: 'Brief Client — ARISID STUDIO',
         short_name: 'Brief ARISID',
         description: 'Application de brief client en présentiel — ARISID STUDIO',
         theme_color: '#7c2d9e',
-        background_color: '#1a1a1a',
+        background_color: '#7c2d9e',
         display: 'standalone',
         orientation: 'any',
         start_url: '/',
         icons: [
           {
-            src: 'LOGO ARISID STUDIO Blanc.png',
+            src: 'icon-192.png',
             sizes: '192x192',
             type: 'image/png',
           },
           {
-            src: 'LOGO ARISID STUDIO Blanc.png',
+            src: 'icon-512.png',
             sizes: '512x512',
             type: 'image/png',
+          },
+          {
+            src: 'icon-512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any maskable',
           },
         ],
       },
