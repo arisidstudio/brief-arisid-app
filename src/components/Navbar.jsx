@@ -1,6 +1,6 @@
-import { RotateCcw, Sun, Moon } from 'lucide-react'
+import { RotateCcw, Sun, Moon, StickyNote } from 'lucide-react'
 
-export default function Navbar({ currentSection, totalSections, onReset, isDark, onToggleTheme }) {
+export default function Navbar({ currentSection, totalSections, onReset, isDark, onToggleTheme, onQuickNotes }) {
   return (
     <nav
       style={{
@@ -43,6 +43,36 @@ export default function Navbar({ currentSection, totalSections, onReset, isDark,
             {' '}/{' '}
             <span>{totalSections}</span>
           </span>
+
+          {/* Notes rapides */}
+          <button
+            onClick={onQuickNotes}
+            title="Notes rapides"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 6,
+              background: 'transparent',
+              border: '1px solid var(--border-visible)',
+              borderRadius: 6,
+              color: 'var(--text-secondary)',
+              fontSize: 12,
+              padding: '6px 12px',
+              cursor: 'pointer',
+              transition: 'all 0.15s',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.borderColor = 'var(--accent)'
+              e.currentTarget.style.color = 'var(--accent)'
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.borderColor = 'var(--border-visible)'
+              e.currentTarget.style.color = 'var(--text-secondary)'
+            }}
+          >
+            <StickyNote size={13} />
+            Notes rapides
+          </button>
 
           {/* Theme toggle */}
           <button

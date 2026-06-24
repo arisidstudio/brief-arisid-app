@@ -10,6 +10,7 @@ import S4Univers from './sections/S4Univers'
 import S5Livrables from './sections/S5Livrables'
 import S6Final from './sections/S6Final'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import QuickNotes from './components/QuickNotes'
 
 const TOTAL_SECTIONS = 6
 
@@ -22,6 +23,7 @@ export default function App() {
   const [data, setData] = useState(initialState)
   const [showResetConfirm, setShowResetConfirm] = useState(false)
   const [isDark, setIsDark] = useState(true)
+  const [showQuickNotes, setShowQuickNotes] = useState(false)
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light')
@@ -73,6 +75,7 @@ export default function App() {
         onReset={() => setShowResetConfirm(true)}
         isDark={isDark}
         onToggleTheme={toggleTheme}
+        onQuickNotes={() => setShowQuickNotes(true)}
       />
       <ProgressBar current={current} total={TOTAL_SECTIONS} />
 
@@ -166,6 +169,11 @@ export default function App() {
       >
         © 2025 ARISID STUDIO — Tous droits réservés
       </footer>
+
+      {/* Quick Notes modal */}
+      {showQuickNotes && (
+        <QuickNotes onClose={() => setShowQuickNotes(false)} />
+      )}
 
       {/* Reset modal */}
       {showResetConfirm && (
